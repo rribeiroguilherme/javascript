@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrangeiro ou não</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 60px;
+            padding-bottom: 30px;
+            color: blue;
+        }
+
+        form {
+            background-color: rgb(106, 168, 189);
+            height: 200px;
+            width: 500px;
+            padding: 30px;
+            border-radius: 10px;
+            display: block;
+            margin: auto;
+            color: white;
+            font-weight: bolder;
+            line-height: 200px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+
+        form > input {
+            font-size: 0.7em;
+            width: 100px;
+            padding: 10px;
+            transition: .4s;
+        }
+
+        input#botao:hover {
+            background-color: rgb(126, 126, 201);
+            border: none;
+            
+        }
+
+        div#res {
+            background-color: blue;
+            color: white;
+            font-size: 1.3em;
+            height: 50px;
+            width: 98vw;
+            margin-top: 30px;
+            text-align: center;
+            padding: 10px;
+            line-height: 50px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <h1>Saiba se é estrangeiro ou não!</h1>
+    <form action="#" method="get" autocomplete="off">
+        <label for="est">Digite onde você mora:</label>
+        <input type="text" name="est" id="est" required placeholder="Brasil" >
+        <input id="botao" type="button" value="Verificar" onclick="verificar()">
+    </form>
+    <div id="res"></div>
+    <script>
+        function verificar() {
+            var pais = document.getElementById('est')
+            var saber = (pais.value)
+            var res = document.getElementById('res')
+
+            
+
+            if (saber == 'Brasil') {
+                res.innerHTML = `<p>Brasileiro!</p>`
+            } else {
+                res.innerHTML = `<p>Estrangeiro!</p>`
+            }
+        }
+    </script>
+</body>
+</html>
