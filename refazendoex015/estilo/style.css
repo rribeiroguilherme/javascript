@@ -57,3 +57,8 @@ input#botao:hover {
     font-weight: bold;
 
 }
+
+img {
+    margin: auto;
+    padding: 10px;
+}
