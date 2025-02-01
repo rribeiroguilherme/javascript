@@ -9,6 +9,8 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+@media all {
+    
 
 body {
     display: flex;
@@ -129,6 +131,16 @@ main {
 
 .register-link a:hover {
     text-decoration: underline;
-    font
+}
 }
 
+@media screen and (max-width: 749px) {
+    main {
+        max-width: 360px;
+        font-size: 0.7em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+}
