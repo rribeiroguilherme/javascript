@@ -32,7 +32,6 @@ body {
 
 main {
     backdrop-filter: blur(5px);
-    max-width: 350px;
 }
 
 .container h1 {
