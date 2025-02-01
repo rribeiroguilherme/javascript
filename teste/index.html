@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Dados Aleatórios</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos globais */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Div centralizada */
+        .container {
+            background-color: #050505;
+            border: 1px solid #1a1a1a;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #1a1a1a;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            text-align: left;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerar Dados Aleatórios</h1>
+        <button onclick="extrairDadosAleatorios()">Gerar Dados</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        // Texto oculto com vários usuários, senhas e URLs
+        const textoOculto = `
+DADOS DO SERVIDOR
+Url: http://dnsb.io
+Usuário: fabio0202
+Senha: tv11969136224
+Conexões Máximas: 1
+Conexões Ativas: 1
+Vencimento: 2025-02-19:02-59-59
+
+
+DADOS DO SERVIDOR
+Url: http://dnsb.io
+Usuário: 5511946655884
+Senha: 34956214
+Conexões Máximas: 1
+Conexões Ativas: 1
+Vencimento: 2025-03-19:02-59-59
+
+DADOS DO SERVIDOR
+Url: http://dnsb.io
+Usuário: tiago2507tv
+Senha: tvmd6199495331
+Conexões Máximas: 1
+Conexões Ativas: 1
+Vencimento: 2025-02-21:02-59-59
+
+
+DADOS DO SERVIDOR
+Url: http://dnsb.io
+Usuário: tales1011
+Senha: tv4888443606
+Conexões Máximas: 1
+Conexões Ativas: 1
+Vencimento: 2025-07-18:02-59-59
+
+
+DADOS DO SERVIDOR
+Url: http://dnsb.io
+Usuário: paulo2601
+Senha: TvMd21972171515
+Conexões Máximas: 1
+Conexões Ativas: 1
+Vencimento: 2025-04-04:02-59-59
+
+
+DADOS DO SERVIDOR
+Url: http://dnsb.io
+Usuário: waterloo1801
+Senha: tvmd61981255525
+Conexões Máximas: 1
+Conexões Ativas: 1
+Vencimento: 2025-02-25:02-59-59
+
+
+DADOS DO SERVIDOR
+Url: http://dnsb.io
+Usuário: celso1007tv
+Senha: tvmd11999771666
+Conexões Máximas: 1
+Conexões Ativas: 1
+Vencimento: 2025-07-15:02-59-59
+
+
+DADOS DO SERVIDOR
+Url: http://dnsb.io
+Usuário: marcelajp
+Senha: mjir2905
+Conexões Máximas: 1
+Conexões Ativas: 1
+Vencimento: 2025-02-26:02-59-59
+
+
+DADOS DO SERVIDOR
+Url: http://dnsb.io
+Usuário: 5511947755184
+Senha: 35134521
+Conexões Máximas: 1
+Conexões Ativas: 1
+Vencimento: 2025-02-25:02-59-59
+        `;
+
+        function extrairDadosAleatorios() {
+            // Divide o texto em blocos (cada bloco contém um usuário, senha e URL)
+            const blocos = textoOculto.trim().split('\n\n');
+
+            // Seleciona um bloco aleatoriamente
+            const blocoAleatorio = blocos[Math.floor(Math.random() * blocos.length)];
+
+            // Extrai o usuário, senha e URL do bloco selecionado
+            const regexUsuario = /Usuário:\s*(\S+)/i;
+            const regexSenha = /Senha:\s*(\S+)/i;
+            const regexUrl = /Url:\s*(\S+)/i;
+
+            const usuario = blocoAleatorio.match(regexUsuario);
+            const senha = blocoAleatorio.match(regexSenha);
+            const url = blocoAleatorio.match(regexUrl);
+
+            // Exibe os resultados na div #resultado
+            const resultado = document.getElementById('resultado');
+            resultado.innerHTML = `
+                <p><strong>Usuário:</strong> ${usuario ? usuario[1] : 'Não encontrado'}</p>
+                <p><strong>Senha:</strong> ${senha ? senha[1] : 'Não encontrada'}</p>
+                <p><strong>URL:</strong> ${url ? url[1] : 'Não encontrada'}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
